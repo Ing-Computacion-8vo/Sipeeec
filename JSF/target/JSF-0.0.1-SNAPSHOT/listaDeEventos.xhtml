@@ -1,229 +1,161 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<script name="jquery/jquery.js" library="primefaces"></script>
-	<title>Lista de eventos</title>
+    <script name="jquery/jquery.js" library="primefaces"></script>
+    <title>Bienvenido al SIPE</title>
 </h:head>
 <h:form>
-	<p:toolbar id="tb">
-		<f:facet name="left">
-			<p:commandButton type="button" value="Registro de evento"
-				icon="ui-icon-document" />
-			<p:commandButton type="button" value="Lista de eventos"
-				icon="ui-icon-document" />
-			<p:commandButton type="button" value="Registrar alumno"
-				icon="ui-icon-document" />
+  <p:growl id="messages"></p:growl>
+ <p:menubar>
+      <p:menuitem value="Cerrar sesión">
+   </p:menuitem>
+   </p:menubar>
+   
+   <p:dataTable var="evento" value="#{registerEmployee.eventos}">
+<p:column>
+<f:facet name="header">
+<h:outputText value="NOMBRE" />
+</f:facet>
+<h:outputText value="#{evento.nombre}" />
 
-	
-				<p:commandButton value="Estadística periódica" type="button"
-				onclick="PF('ep').show()" />
-			<!--  REEMPLAZAR POR OPCIONES DEL MENU PARA EL SISTEMA  -->
-		</f:facet>
-		<f:facet name="right">
-			<p:commandButton type="button" title="Save" icon="ui-icon-disk"
-				value="Cerrar sesión" />
-		</f:facet>
-	</p:toolbar>
-	<p:sticky target="tb" />
-	<p:growl id="messages"></p:growl>
-	<br></br>
-	<p:outputLabel value="Buscar por fecha:"></p:outputLabel>
-	<p:calendar value="#{dateBean.date}" pattern="MM/dd/yyyy HH:mm" />
-	<br></br>
+</p:column>
+<p:column>
+<f:facet name="header">
+<h:outputText value="EVENTO" />
+</f:facet>
+<h:outputText value="#{evento.eventos}" />
+</p:column>
+<p:column>
+<f:facet name="header">
+<h:outputText value="STATUS" />
+</f:facet>
+<h:outputText value="#{evento.status}" />
+</p:column>
+<p:column>
+<f:facet name="header">
+<h:outputText value="CV" />
+</f:facet>
+<h:commandButton value="Descargar">
+<p:fileDownload value="" />
+</h:commandButton>
+</p:column>
+<p:column>
+<f:facet name="header">
+<h:outputText value="USUARIO" />
+</f:facet>
+<h:outputText value="#{evento.usuario}" />
+</p:column>
+<p:column>
+<f:facet name="header">
+<h:outputText value="CONTRASEÑA" />
+</f:facet>
+<h:outputText value="#{evento.contrasena}" />
+</p:column>
+<p:column>
+<f:facet name="header">
+<h:outputText value=" GENERAR CONSTANCIA PONENTE" />
+</f:facet>
+<p:commandButton value="Mostrar" type="button" onclick="PF('cp').show()" />
 
+</p:column>
 
-	<p:dataTable var="evento" value="#{registerEmployee.eventos}">
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="Evento" />
-			</f:facet>
-			<h:outputText value="#{evento.eventos}" />
-		</p:column>
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="Fecha de evento" />
-			</f:facet>
-			<h:outputText value="#{evento.eventos}" />
-		</p:column>
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="Nombre de ponente" />
-			</f:facet>
-			<h:outputText value="#{evento.nombre}" />
-		</p:column>
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="Estatus" />
-			</f:facet>
-			<h:outputText value="#{evento.status}" />
-		</p:column>
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="Curriculum" />
-			</f:facet>
-			<h:commandButton value="Descargar">
-				<p:fileDownload value="" />	
-			</h:commandButton>
-		</p:column>
-			<p:column>
-			<f:facet name="header">
-				<h:outputText value="USUARIO" />
-			</f:facet>
-			<h:outputText value="#{evento.usuario}" />
-		</p:column>
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="CONTRASEÑA" />
-			</f:facet>
-			<h:outputText value="#{evento.contrasena}" />
-		</p:column>
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value=" GENERAR CONSTANCIA PONENTE" />
-			</f:facet>
-			<p:commandButton value="Mostrar" type="button"
-				onclick="PF('cp').show()" />
+<p:column>
+<f:facet name="header">
+<h:outputText value="GENERAR CONSTANCIA ALUMNO" />
+</f:facet>
+<p:commandButton value="Mostrar" type="button" onclick="PF('ca').show()" />
+</p:column>
+<p:column>
+<f:facet name="header">
+<h:outputText value="GENERAR CONSTANCIA DOCENTE" />
+</f:facet>
+<p:commandButton value="Mostrar" type="button" onclick="PF('cd').show()" />
+</p:column>
+<p:column>
+<f:facet name="header">
+<h:outputText value="GENERAR FORMATOS" />
+</f:facet>
+<p:commandButton value="Mostrar" type="button" onclick="PF('gf').show()" />
+</p:column>
+</p:dataTable>
 
-		</p:column>
+       <p:commandButton value="Ingresar" action="#{registerEmployee.register}" update="messages"></p:commandButton>
+       
+       <p:dialog header="Generar Formatos" widgetVar="gf">
+    <p:panelGrid columns="2">
+        <p:outputLabel value="Semestres:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>    
+        <p:outputLabel value="Periodo:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>  
+         <p:outputLabel value="Revisión:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>                     
+    </p:panelGrid>
+     <p:commandButton value="Aceptar" action="#{registerEmployee.register}" update="messages" onclick="PF('gf').hide()"></p:commandButton>
+      <p:commandButton value="Cancelar" action="#{registerEmployee.register}" update="messages"></p:commandButton>
+       </p:dialog>
 
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="GENERAR CONSTANCIA ALUMNO" />
-			</f:facet>
-			<p:commandButton value="Mostrar" type="button"
-				onclick="PF('ca').show()" />
-		</p:column>
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="GENERAR CONSTANCIA DOCENTE" />
-			</f:facet>
-			<p:commandButton value="Mostrar" type="button"
-				onclick="PF('cd').show()" />
-		</p:column>
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="Formatos de invitacion y evaluacion" />
-			</f:facet>
-			<p:commandButton value="Imprimir" action="#{registerEmployee.register}" ></p:commandButton>
-		</p:column>
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="Formato de asistenca y evaluacion" />
-			</f:facet>
-			<p:commandButton value="Mostrar" type="button"
-				onclick="PF('gf').show()" />
-		</p:column>
-		<p:column>
-			<f:facet name="header">
-				<h:outputText value="Estadistica" />
-			</f:facet>
-			<p:commandButton value="Generar" action="#{registerEmployee.register}" ></p:commandButton>
-		</p:column>
-	</p:dataTable>
-	
-	<p:dialog header="Estadística periódica" widgetVar="ep">
-		<p:panelGrid columns="3">
-			<p:outputLabel value="Periodo"></p:outputLabel>
-			<p:inputText value="Aparece una lista de periodos "></p:inputText>
-			<p:commandButton value="Imprimir" action="#{registerEmployee.register}"
-				update="messages"></p:commandButton>
-		</p:panelGrid>
-		
-		</p:dialog>
-	
-
-	<p:commandButton value="Registrar evento"
-		action="#{registerEmployee.register}" update="messages"></p:commandButton>
-
-	<p:dialog header="Formato de asistenca y evaluacion" widgetVar="gf">
-		<p:panelGrid columns="2">
-			<p:outputLabel value="Semestres:"></p:outputLabel>
-			<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
-			<p:outputLabel value="Periodo:"></p:outputLabel>
-			<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
-			<p:outputLabel value="Revisión:"></p:outputLabel>
-			<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
-		</p:panelGrid>
-		
-		<p:commandButton value="Imprimir" action="#{registerEmployee.register}"
-			update="messages" onclick="PF('gf').hide()"></p:commandButton>
-		<p:commandButton value="Cancelar"
-			action="#{registerEmployee.register}" update="messages"></p:commandButton>
-	</p:dialog>
-
-	<p:dialog header="Constancia Alumno" widgetVar="ca">
-		<p:panelGrid columns="3">
-			<p:outputLabel value="Matricula:"></p:outputLabel>
-			<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
-			<p:commandButton value="Buscar" action="#{registerEmployee.register}"
-				update="messages"></p:commandButton>
-		</p:panelGrid>
-		<p:panelGrid columns="3">
-			<p:outputLabel value="Status:"></p:outputLabel>
-			<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
-			<p:commandButton value="Buscar" action="#{registerEmployee.register}"
-				update="messages"></p:commandButton>
-		</p:panelGrid>
-		<p:panelGrid columns="4">
-			<p:outputLabel value="Nombre:"></p:outputLabel>
-			<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
-			<p:outputLabel value="Nombre:"></p:outputLabel>
-			<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
-			<p:outputLabel value="Cargo:"></p:outputLabel>
-			<p:inputText value="Coordinador"></p:inputText>
-			<p:outputLabel value="Cargo:"></p:outputLabel>
-			<p:inputText value="Responsable de Extensión y Cultura"></p:inputText>
-		</p:panelGrid>
-		
-		
-		<p:commandButton value="Aceptar" action="#{registerEmployee.register}"
-			update="messages" onclick="PF('ca').hide()"></p:commandButton>
-		<p:commandButton value="Cancelar"
-			action="#{registerEmployee.register}" update="messages"></p:commandButton>
-	</p:dialog>
-
-	<p:dialog header="Constancia Docente" widgetVar="cd">
-		<p:panelGrid columns="3">
-			<p:outputLabel value="Matricula:"></p:outputLabel>
-			<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
-			<p:commandButton value="Buscar" action="#{registerEmployee.register}"
-				update="messages"></p:commandButton>
-		</p:panelGrid>
-		<p:panelGrid columns="4">
-			<p:outputLabel value="Nombre:"></p:outputLabel>
-			<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
-			<p:outputLabel value="Nombre:"></p:outputLabel>
-			<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
-			<p:outputLabel value="Cargo:"></p:outputLabel>
-			<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
-			<p:outputLabel value="Cargo:"></p:outputLabel>
-			<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
-		</p:panelGrid>
-		<p:commandButton value="Aceptar" action="#{registerEmployee.register}"
-			update="messages" onclick="PF('ca').hide()"></p:commandButton>
-		<p:commandButton value="Cancelar"
-			action="#{registerEmployee.register}" update="messages"></p:commandButton>
-	</p:dialog>
-
-	<p:dialog header="Constancia Ponente" widgetVar="cp">
-		<p:panelGrid columns="4">
-			<p:outputLabel value="Nombre"></p:outputLabel>
-			<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
-			<p:outputLabel value="Nombre :"></p:outputLabel>
-			<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
-			<p:outputLabel value="Cargo:"></p:outputLabel>
-			<p:inputText value="Coordinador"></p:inputText>
-			<p:outputLabel value="Cargo:"></p:outputLabel>
-			<p:inputText value="Responsable de Extensión y Cultura"></p:inputText>
-		</p:panelGrid>
-
-		<p:commandButton value="Aceptar" action="#{registerEmployee.register}"
-			update="messages" onclick="PF('cp').hide()"></p:commandButton>
-		<p:commandButton value="Cancelar"
-			action="#{registerEmployee.register}" update="messages"></p:commandButton>
-	</p:dialog>
+<p:dialog header="Constancia Alumno" widgetVar="ca">
+<p:panelGrid columns="3">
+        <p:outputLabel value="Matricula:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>    
+         <p:commandButton value="Buscar" action="#{registerEmployee.register}" update="messages"></p:commandButton>  
+         </p:panelGrid>
+       <p:panelGrid columns="4">
+        <p:outputLabel value="Nombre:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
+        <p:outputLabel value="Nombre:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>    
+        <p:outputLabel value="Cargo:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>      
+        <p:outputLabel value="Cargo:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>             
+    </p:panelGrid>
+     <p:commandButton value="Aceptar" action="#{registerEmployee.register}" update="messages" onclick="PF('ca').hide()"></p:commandButton>
+       <p:commandButton value="Cancelar" action="#{registerEmployee.register}" update="messages"></p:commandButton>
+       </p:dialog>
+       
+       <p:dialog header="Constancia Docente" widgetVar="cd">
+<p:panelGrid columns="3">
+        <p:outputLabel value="Matricula:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>    
+         <p:commandButton value="Buscar" action="#{registerEmployee.register}" update="messages"></p:commandButton>  
+         </p:panelGrid>
+       <p:panelGrid columns="4">
+        <p:outputLabel value="Nombre:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
+        <p:outputLabel value="Nombre:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>    
+        <p:outputLabel value="Cargo:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>      
+        <p:outputLabel value="Cargo:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>             
+    </p:panelGrid>
+     <p:commandButton value="Aceptar" action="#{registerEmployee.register}" update="messages" onclick="PF('ca').hide()"></p:commandButton>
+       <p:commandButton value="Cancelar" action="#{registerEmployee.register}" update="messages"></p:commandButton>
+       </p:dialog>
+       
+       <p:dialog header="Constancia Ponente" widgetVar="cp">
+       <p:panelGrid columns="3">
+        <p:outputLabel value="Matricula:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>    
+         <p:commandButton value="Buscar" action="#{registerEmployee.register}" update="messages"></p:commandButton>  
+         </p:panelGrid>
+    
+       <p:panelGrid columns="4">
+        <p:outputLabel value="Nombre:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
+        <p:outputLabel value="Nombre:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>    
+        <p:outputLabel value="Cargo:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>      
+        <p:outputLabel value="Cargo:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>             
+    </p:panelGrid>
+     <p:commandButton value="Aceptar" action="#{registerEmployee.register}" update="messages" onclick="PF('cp').hide()"></p:commandButton>
+       <p:commandButton value="Cancelar" action="#{registerEmployee.register}" update="messages"></p:commandButton>
+       </p:dialog>
 </h:form>
 </html>

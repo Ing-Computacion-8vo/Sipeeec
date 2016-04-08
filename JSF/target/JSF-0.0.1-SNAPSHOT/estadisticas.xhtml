@@ -5,28 +5,20 @@
     xmlns:p="http://primefaces.org/ui">
 <h:head>
     <script name="jquery/jquery.js" library="primefaces"></script>
-    <title>Estadisticas</title>
+    <title>Bienvenido al SIPE</title>
 </h:head>
 <h:form>
-<p:toolbar id="tb">
-    <f:facet name="left">
-        <p:commandButton type="button" value="Registro de evento" icon="ui-icon-document" />
-        <p:commandButton type="button" value="Lista de eventos" icon="ui-icon-document"/>
-        
-        
-    </f:facet>
-    <f:facet name="right">
-        <p:commandButton type="button" title="Save" icon="ui-icon-disk" value="Cerrar sesión"/>
-    </f:facet>
-</p:toolbar>
-<p:sticky target="tb" />
-    <p:growl id="messages"></p:growl>
-<br></br>
+  <p:growl id="messages"></p:growl>
+ 
+<p:menubar>
+      <p:menuitem value="Cerrar sesión">
+   </p:menuitem>
+   </p:menubar>
        <p:panelGrid columns="4">
          <p:outputLabel value="Grupos participantes:"></p:outputLabel>
-           <p:outputLabel value="Total de Matrícula del grupo:"></p:outputLabel>
+           <p:outputLabel value="Total de matricula del grupo:"></p:outputLabel>
              <p:outputLabel value="Total de participantes por grupo:"></p:outputLabel>
-               <p:outputLabel value="Porcentaje de Participación"></p:outputLabel>
+               <p:outputLabel value="Porcentaje de participacion:"></p:outputLabel>
                
         <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>
         <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>    

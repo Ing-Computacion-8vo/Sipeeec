@@ -1,50 +1,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<script name="jquery/jquery.js" library="primefaces"></script>
-	<title>Ponente</title>
+    <script name="jquery/jquery.js" library="primefaces"></script>
+    <title>Bienvenido al SIPE</title>
 </h:head>
 <h:form>
-	<p:toolbar id="tb">
-
-		<f:facet name="right">
-			<p:commandButton type="button" title="Save" icon="ui-icon-disk"
-				value="Cerrar sesión" />
-		</f:facet>
-	</p:toolbar>
-	<p:sticky target="tb" />
-	<p:growl id="messages"></p:growl>
-	<br></br>
-
-	<p:panelGrid columns="2">
-		<p:outputLabel value="Nombre de evento:"></p:outputLabel>
-		<p:inputText value="#{evento.nombre}"></p:inputText>
-		<p:outputLabel value="Fecha y hora del evento:"></p:outputLabel>
-		<p:calendar value="#{dateBean.date}" pattern="MM/dd/yyyy HH:mm" />
-		<p:outputLabel value="Lugar del evento:"></p:outputLabel>
-		<p:inputText value="#{evento.nombre}"></p:inputText>
-		
-	</p:panelGrid>
-	
-
-	
-	
-
-	<p:panelGrid columns="3">
-		<p:outputLabel value="Suba Curriculum"></p:outputLabel>
-		<p:fileUpload value="#{fileUploadManagedBean.file}" mode="simple"></p:fileUpload>
-		<p:outputLabel value=".PDF"></p:outputLabel>
-	</p:panelGrid>
-
-
-	<p:commandButton value="Aceptar" action="#{registerEmployee.register}"
-		update="messages"></p:commandButton>
-	<p:commandButton value="Modificar"
-		action="#{registerEmployee.register}" update="messages"></p:commandButton>
-	<p:commandButton value="Cancelar" action="#{registerEmployee.register}"
-		update="messages"></p:commandButton>
+    <p:growl id="messages"></p:growl>
+  
+     <p:menubar>
+      <p:menuitem value="Cerrar sesión">
+   </p:menuitem>
+   </p:menubar>
+    <p:panelGrid columns="2">
+    <p:outputLabel value="Fecha y hora del evento:"></p:outputLabel>
+         <p:calendar value="#{dateBean.date}" pattern="MM/dd/yyyy HH:mm" />
+        <p:outputLabel value="Lugar del evento:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText> 
+                <p:outputLabel value="Correo Electronico del ponente:"></p:outputLabel>
+          <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText> 
+        
+       
+          
+                 
+    </p:panelGrid>
+    
+    <p:panelGrid columns="1"> 
+    <p:fileUpload value="#{fileBean.file}" mode="simple" />
+    </p:panelGrid>
+   
+    <p:commandButton value="Aceptar" action="#{registerEmployee.register}" update="messages"></p:commandButton>
+     <p:commandButton value="Modificar" action="#{registerEmployee.register}" update="messages"></p:commandButton>
+	<p:commandButton value="Cancelar" action="#{registerEmployee.register}" update="messages"></p:commandButton>
 </h:form>
 </html>

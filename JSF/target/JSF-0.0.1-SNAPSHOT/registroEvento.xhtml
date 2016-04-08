@@ -5,26 +5,15 @@
     xmlns:p="http://primefaces.org/ui">
 <h:head>
     <script name="jquery/jquery.js" library="primefaces"></script>
-    <title>Registro Evento</title>
+    <title>Bienvenido al SIPE</title>
 </h:head>
 <h:form>
-<p:toolbar id="tb">
-    <f:facet name="left">
-        <p:commandButton type="button" value="Registro de evento" icon="ui-icon-document" />
-        <p:commandButton type="button" value="Lista de eventos" icon="ui-icon-document"/>
-        <p:commandButton type="button" value="Registrar alumno" icon="ui-icon-document"/>
-        
-        <!--  REEMPLAZAR POR OPCIONES DEL MENU PARA EL SISTEMA  -->
-    </f:facet>
-    <f:facet name="right">
-        <p:commandButton type="button" title="Save" icon="ui-icon-disk" value="Cerrar sesión"/>
-    </f:facet>
-</p:toolbar>
-<p:sticky target="tb" />
     <p:growl id="messages"></p:growl>
-<br></br> 
   
-
+     <p:menubar>
+      <p:menuitem value="Cerrar sesión">
+   </p:menuitem>
+   </p:menubar>
     <p:panelGrid columns="2">
         <p:outputLabel value="Tipo de evento:"></p:outputLabel>
         <p:selectOneButton>
@@ -43,21 +32,19 @@
         <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>  
          <p:outputLabel value="Correo del ponente:"></p:outputLabel>
         <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText> 
-         <p:outputLabel value="Teléfono del ponente:"></p:outputLabel>
-        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
-               <p:outputLabel value="Periodo:"></p:outputLabel>
-        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
-                <p:outputLabel value="Lugar del evento:"></p:outputLabel>
+         <p:outputLabel value="Telefono del ponente:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>   
+        <p:outputLabel value="Lugar del evento:"></p:outputLabel>
         <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText> 
         <p:outputLabel value="Fecha y hora del evento:"></p:outputLabel>
          <p:calendar value="#{dateBean.date}" pattern="MM/dd/yyyy HH:mm" /> 
         <p:outputLabel value="Audiencia:"></p:outputLabel>
         <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>    
-        <p:outputLabel value="Responsable o Coordinador de Extensión y Cultura:"></p:outputLabel>
+        <p:outputLabel value="Responsable o Coordinador de Extención y Cultura:"></p:outputLabel>
         <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>                  
     </p:panelGrid>
     <p:commandButton value="Aceptar" action="#{registerEmployee.register}" update="messages"></p:commandButton>
-	 
+	 <p:commandButton value="Imprimir" action="#{registerEmployee.register}" update="messages"></p:commandButton>
 	  <p:commandButton value="Cancelar" action="#{registerEmployee.register}" update="messages"></p:commandButton>
 </h:form>
 </html>

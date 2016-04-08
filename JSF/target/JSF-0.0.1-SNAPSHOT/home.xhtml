@@ -5,25 +5,23 @@
     xmlns:p="http://primefaces.org/ui">
 <h:head>
     <script name="jquery/jquery.js" library="primefaces"></script>
-    <title>Home</title>
+    <title>HOME</title>
 </h:head>
 <h:form>
-<p:toolbar id="tb">
-    <f:facet name="left">
-        <p:commandButton type="button" value="Registro de evento" icon="ui-icon-document" />
-        <p:commandButton type="button" value="Lista de eventos" icon="ui-icon-document"/>
-        <p:commandButton type="button" value="Registrar alumno" icon="ui-icon-document"/>
-        
-                <!--  REEMPLAZAR POR OPCIONES DEL MENU PARA EL SISTEMA  -->
-    </f:facet>
-    <f:facet name="right">
-        <p:commandButton type="button" title="Save" icon="ui-icon-disk" value="Cerrar sesión"/>
-    </f:facet>
-</p:toolbar>
-<p:sticky target="tb" />
     <p:growl id="messages"></p:growl>
-    
-    <!--  REEMPLAZAR POR EL CONTENIDO DE CADA PAGINA  -->
-    <!--  REEMPLAZAR POR EL CONTENIDO DE CADA PAGINA  -->
-</h:form>
+   <p:menubar>
+    <p:menuitem value="Registro de evento"> 
+   	
+   </p:menuitem>
+   
+   <p:menuitem value="Lista de eventos">
+   </p:menuitem>
+   
+   <p:menuitem value="Generar estadística periódica">
+   </p:menuitem>
+   
+   <p:menuitem value="Cerrar sesión">
+   </p:menuitem>
+   </p:menubar>
+   </h:form>
 </html>
