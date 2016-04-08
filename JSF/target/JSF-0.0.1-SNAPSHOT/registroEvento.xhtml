@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <script name="jquery/jquery.js" library="primefaces"></script>
+    <title>Registro Evento</title>
+</h:head>
+<h:form>
+<p:toolbar id="tb">
+    <f:facet name="left">
+        <p:commandButton type="button" value="Registro de evento" icon="ui-icon-document" />
+        <p:commandButton type="button" value="Lista de eventos" icon="ui-icon-document"/>
+        <p:commandButton type="button" value="Registrar alumno" icon="ui-icon-document"/>
+        
+        <!--  REEMPLAZAR POR OPCIONES DEL MENU PARA EL SISTEMA  -->
+    </f:facet>
+    <f:facet name="right">
+        <p:commandButton type="button" title="Save" icon="ui-icon-disk" value="Cerrar sesión"/>
+    </f:facet>
+</p:toolbar>
+<p:sticky target="tb" />
+    <p:growl id="messages"></p:growl>
+<br></br> 
+  
+
+    <p:panelGrid columns="2">
+        <p:outputLabel value="Tipo de evento:"></p:outputLabel>
+        <p:selectOneButton>
+       <f:selectItem itemValue="Conferencia" itemLabel="Conferencia"></f:selectItem>
+       <f:selectItem itemValue="Taller" itemLabel="Taller"></f:selectItem>
+       <f:selectItem itemValue="Curso" itemLabel="Curso"></f:selectItem>
+        </p:selectOneButton> 
+          
+        <p:outputLabel value="Nombre del evento:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>  
+        <p:outputLabel value="Nombre del ponente:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText> 
+         <p:outputLabel value="Apellido paterno:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText> 
+         <p:outputLabel value="Apellido materno:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>  
+         <p:outputLabel value="Correo del ponente:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText> 
+         <p:outputLabel value="Teléfono del ponente:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
+               <p:outputLabel value="Periodo:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
+                <p:outputLabel value="Lugar del evento:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText> 
+        <p:outputLabel value="Fecha y hora del evento:"></p:outputLabel>
+         <p:calendar value="#{dateBean.date}" pattern="MM/dd/yyyy HH:mm" /> 
+        <p:outputLabel value="Audiencia:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>    
+        <p:outputLabel value="Responsable o Coordinador de Extensión y Cultura:"></p:outputLabel>
+        <p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>                  
+    </p:panelGrid>
+    <p:commandButton value="Aceptar" action="#{registerEmployee.register}" update="messages"></p:commandButton>
+	 
+	  <p:commandButton value="Cancelar" action="#{registerEmployee.register}" update="messages"></p:commandButton>
+</h:form>
+</html>

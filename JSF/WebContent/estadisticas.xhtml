@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <script name="jquery/jquery.js" library="primefaces"></script>
+    <title>Estadisticas</title>
+</h:head>
+<h:form>
+<p:toolbar id="tb">
+    <f:facet name="left">
+        <p:commandButton type="button" value="Registro de evento" icon="ui-icon-document" />
+        <p:commandButton type="button" value="Lista de eventos" icon="ui-icon-document"/>
+        
+        
+    </f:facet>
+    <f:facet name="right">
+        <p:commandButton type="button" title="Save" icon="ui-icon-disk" value="Cerrar sesión"/>
+    </f:facet>
+</p:toolbar>
+<p:sticky target="tb" />
+    <p:growl id="messages"></p:growl>
+<br></br>
+       <p:panelGrid columns="4">
+         <p:outputLabel value="Grupos participantes:"></p:outputLabel>
+           <p:outputLabel value="Total de Matrícula del grupo:"></p:outputLabel>
+             <p:outputLabel value="Total de participantes por grupo:"></p:outputLabel>
+               <p:outputLabel value="Porcentaje de Participación"></p:outputLabel>
+               
+        <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>
+        <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>    
+       <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>      
+        <h:outputText value="0" />        
+        
+         <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>
+        <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>    
+       <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>      
+        <h:outputText value="0" /> 
+        
+         <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>
+        <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>    
+       <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>      
+        <h:outputText value="0" /> 
+        
+         <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>
+        <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>    
+       <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>      
+        <h:outputText value="0" /> 
+        
+         <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>
+        <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>    
+       <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>      
+        <h:outputText value="0" /> 
+        
+         <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>
+        <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>    
+       <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>      
+        <h:outputText value="0" /> 
+        
+         <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>
+        <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>    
+       <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>      
+        <h:outputText value="0" /> 
+        
+         <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>
+        <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>    
+       <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>      
+        <h:outputText value="0" /> 
+        
+         <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>
+        <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>    
+       <p:inputText value="#{registerEmployee.employee.employeeName}" size="20"></p:inputText>      
+        <h:outputText value="0" /> 
+         
+        <h:outputText value="TOTAL" /> 
+        <h:outputText value="0" /> 
+        <h:outputText value="0" /> 
+        <h:outputText value="0" />  
+    </p:panelGrid>
+     <p:commandButton value="Imprimir" action="#{registerEmployee.register}" update="messages"></p:commandButton>
+     <p:commandButton value="Graficar" action="#{registerEmployee.register}" update="messages"></p:commandButton>
+</h:form>
+</html>

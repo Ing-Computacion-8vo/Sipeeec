@@ -1,0 +1,101 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+	<title>Registro Alumnos</title>
+</h:head>
+<h:form>
+	<p:toolbar id="tb">
+		<!-- <f:facet name="left">
+			<p:commandButton type="button" value="Registro de evento"
+				icon="ui-icon-document" />
+			<p:commandButton type="button" value="Lista de eventos"
+				icon="ui-icon-document" />
+
+			<p:commandButton type="button" value="Generar estadística periódica"
+				icon="ui-icon-folder-open" />
+			 REEMPLAZAR POR OPCIONES DEL MENU PARA EL SISTEMA 
+		</f:facet>
+		<f:facet name="right">
+			<p:commandButton type="button" title="Save" icon="ui-icon-disk"
+				value="Cerrar sesión" />
+		</f:facet> -->
+	</p:toolbar>
+	
+	<p:growl id="messages"></p:growl>
+	<br></br>
+	<p:outputLabel value="Cargar Excel con lista de alumnos"></p:outputLabel>
+	<h:form enctype="multipart/form-data">
+		<p:fileUpload update="tt" sizeLimit="1000000"
+			fileUploadListener="#{bBean.handleFileUpload}" mode="advanced"
+			allowTypes="/(\.|\/)(xls)$/" />
+		<p:growl id="tt" showDetail="true" />
+	</h:form>
+
+	<p:panelGrid columns="2">
+		<p:outputLabel value="Matrícula:"></p:outputLabel>
+		<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
+		<p:outputLabel value="Nombre:"></p:outputLabel>
+		<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
+		<p:outputLabel value="Apellido paterno:"></p:outputLabel>
+		<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
+		<p:outputLabel value="Apellido materno:"></p:outputLabel>
+		<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
+		<p:outputLabel value="Semestre:"></p:outputLabel>
+		<p:inputText value="#{registerEmployee.employee.employeeName}"></p:inputText>
+	</p:panelGrid>
+	<p:commandButton value="Guardar" action="#{registerEmployee.register}"
+		update="messages"></p:commandButton>
+	<p:commandButton value="Cancelar" action="#{registerEmployee.register}"
+		update="messages"></p:commandButton>
+
+	<br></br>
+	<br></br>
+	<p:dataTable var="evento" value="#{registerEmployee.eventos}"
+		stickyHeader="true">
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="MATRÍCULA" />
+			</f:facet>
+			<h:outputText value="#{evento.nombre}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="NOMBRE" />
+			</f:facet>
+			<h:outputText value="#{evento.nombre}" />
+
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="APELLIDO PATERNO" />
+			</f:facet>
+			<h:outputText value="#{evento.eventos}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="APELLIDO MATERNO" />
+			</f:facet>
+			<h:outputText value="#{evento.status}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="SEMESTRE" />
+			</f:facet>
+			<h:outputText value="#{evento.status}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+				<h:outputText value="ACCIÓN" />
+			</f:facet>
+			<p:rowEditor />
+		</p:column>
+	</p:dataTable>
+
+
+
+</h:form>
+</html>
