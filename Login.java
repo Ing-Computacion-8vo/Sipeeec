@@ -1,110 +1,31 @@
-package mx.uatx.controller;
-import java.io.Serializable;
+package com.journaldev.jsf.beans;
 
-import java.util.List;
+import java.io.Serializable;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
-import mx.uatx.dao.LoginDAO;
-import mx.uatx.dto.UsuarioDTO;
+import com.journaldev.jsf.dao.LoginDAO;
 
 @ManagedBean
+@SessionScoped
 public class Login implements Serializable {
-	private String usuario;
-	private String contrasena;
+
+	private static final long serialVersionUID = 1094801825228386363L;
+	
+	private String pwd;
 	private String msg;
-	private String RolAdmi;
-	private String RolPone;
-	
-	
-	/**
-	 * Verifica sea admnistrador
-	 * 
-	 */
+	private String user;
 
-	public boolean tieneRolAdmi(String rol) {
-
-		String valor = obtenerValorSesion(rol);
-		if (valor == null)
-			return false;
-		if (valor.equals("1")) {
-
-			return true;
-
-		} else {
-			return false;
-		}
-
+	public String getPwd() {
+		return pwd;
 	}
 
-	/**
-	 * Verifica ponente
-	
-	 */
-	public boolean tieneRolPone(String rol) {
-
-		String valor = obtenerValorSesion(rol);
-		if (valor == null)
-			return false;
-		if (valor.equals("2")) {
-
-			return true;
-
-		} else {
-			return false;
-		}
-
-	}
-	
-	public String obtenerValorSesion(String rol) {
-		try {
-			FacesContext context = FacesContext.getCurrentInstance();
-			String bd = (String) context.getExternalContext().getSessionMap().get(rol);
-			return bd;
-		} catch (Exception ex) {
-			return "";
-		}
-	}
-	public void mostrarMensaje(String mensaje) {
-		FacesContext context = FacesContext.getCurrentInstance();
-		context.addMessage(null, new FacesMessage(mensaje));
-	}
-	/**
-	 * verifica si el usuario esta registrado en la base de datos
-	 */
-//	public String validateUsernamePassword() {
-//		boolean valid = LoginDAO.validate(usuario, contrasena);
-//		if (valid) {
-//			HttpSession session = SessionBean.getSession();
-//			session.setAttribute("username", usuario);
-//			return "admin";
-//		} else {
-//			FacesContext.getCurrentInstance().addMessage(
-//					null,
-//					new FacesMessage(FacesMessage.SEVERITY_WARN,
-//						"Incorrecto Usuario y contrasena",
-//							"Please enter correct username and Password"));
-//			return "login";
-//		}
-//	}
-
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
-
-	public String getContrasena() {
-		return contrasena;
-	}
-
-	public void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
 	}
 
 	public String getMsg() {
@@ -115,22 +36,35 @@ public class Login implements Serializable {
 		this.msg = msg;
 	}
 
-	public String getRolAdmi() {
-		return RolAdmi;
+	public String getUser() {
+		return user;
 	}
 
-	public void setRolAdmi(String rolAdmi) {
-		RolAdmi = rolAdmi;
+	public void setUser(String user) {
+		this.user = user;
 	}
 
-	public String getRolPone() {
-		return RolPone;
+	//validate login
+	public String validateUsernamePassword() {
+		boolean valid = LoginDAO.validate(user, pwd);
+		if (valid) {
+			HttpSession session = SessionBean.getSession();
+			session.setAttribute("username", user);
+			return "admin";
+		} else {
+			FacesContext.getCurrentInstance().addMessage(
+					null,
+					new FacesMessage(FacesMessage.SEVERITY_WARN,
+							"Incorrect Username and Passowrd",
+							"Please enter correct username and Password"));
+			return "login";
+		}
 	}
 
-	public void setRolPone(String rolPone) {
-		RolPone = rolPone;
+	//logout event, invalidate session
+	public String logout() {
+		HttpSession session = SessionBean.getSession();
+		session.invalidate();
+		return "login";
 	}
-	
-
-	
 }
