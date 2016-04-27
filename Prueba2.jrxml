@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Prueba2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="569bf900-ad81-4589-bcc7-122143cc1a90">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="48"/>
+	<group name="oooooo">
+		<groupExpression><![CDATA[$P{FILTER}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="35" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="82" splitType="Stretch">
+			<staticText>
+				<reportElement x="218" y="62" width="151" height="20" uuid="cdcff81b-2176-45a2-be09-69f494b18277"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Campus Calpulalpan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="165" y="42" width="273" height="20" uuid="35ef67c5-47dd-43b8-8509-1d702e5836ce"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Unidad Academica Multidisplinaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="132" y="7" width="328" height="34" uuid="bc3c0189-4eaf-4829-bd0c-b7dcceb24b38"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Universidad  Autónoma de Tlaxcala]]></text>
+			</staticText>
+			<image>
+				<reportElement x="100" y="7" width="49" height="75" uuid="a7d75c11-deb3-4b2e-a046-8c27376b3ae5"/>
+				<imageExpression><![CDATA["C:\\Users\\Asistente\\Documents\\UAT\\8vo\\seguridadenSistemas\\Sistema SIPEEEC\\descarga.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="54" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="88">
+			<staticText>
+				<reportElement x="26" y="36" width="74" height="20" uuid="bd0ae33e-b960-4ea8-bd0c-2aae5343ba25"/>
+				<text><![CDATA[P r e s e n t e ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="26" y="13" width="74" height="13" uuid="4c9bcf8a-7fb5-49bb-b48c-e51f63db4eb4"/>
+				<text><![CDATA[Doctor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="26" y="56" width="80" height="20" uuid="f32668eb-5367-4071-8169-c0e99974b2a3"/>
+				<text><![CDATA[Muy respetable Maestro]]></text>
+			</staticText>
+		</band>
+		<band height="105" splitType="Stretch">
+			<staticText>
+				<reportElement x="26" y="20" width="492" height="60" uuid="0a83d557-de47-40d6-902f-f2267b9eab89"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Con el afecto de siempre,  le reitero mis más sinceros  saludos y extiendo  la Invitación  de la Comunidad Universitaria de este Campus Calpulalpan a realizar una conferencia sobre como Promover la Cultura de la Innovación, que se llevara a cabo el dia 11 de Septiembre del año en curso, a las 10:00 hrs. en el Aula Magna del Campus Centro de esta Unidad Acádemica.]]></text>
+			</staticText>
+		</band>
+		<band height="50">
+			<staticText>
+				<reportElement x="26" y="8" width="416" height="20" uuid="8735a62e-cc91-44f4-906d-4c9c2fce1d7d"/>
+				<text><![CDATA[Sin otro particular, y esperando contar con su distinguida presencia, reciba un cordial saludo.]]></text>
+			</staticText>
+		</band>
+		<band height="67">
+			<staticText>
+				<reportElement x="154" y="40" width="235" height="18" uuid="246bb425-5876-4e4c-a586-ccfc6a3116be"/>
+				<text><![CDATA[Calpulalpan Tlaxcala, a 11 de Septiembre  del 2016.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="25" width="205" height="15" uuid="4f20ab09-7a3d-41af-b9e2-059504da0279"/>
+				<text><![CDATA["Por la Cultura a la Justicia Social"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="4" width="100" height="21" uuid="ecd9fba1-cba8-4e4e-a8cc-b3071ea1e6e5"/>
+				<text><![CDATA[A t e n t a m e n t e]]></text>
+			</staticText>
+		</band>
+		<band height="50"/>
+		<band height="50">
+			<staticText>
+				<reportElement x="188" y="30" width="181" height="20" uuid="e264e02d-38fb-422f-8edb-42ceaad56c45"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Coordinador de Extensión y Cultura.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="10" width="162" height="20" uuid="30e0e754-bd10-4e3f-886e-7058dd1c3850"/>
+				<text><![CDATA[Ing. Leonel Zempoalteca  Marquez]]></text>
+			</staticText>
+		</band>
+		<band height="50"/>
+		<band height="50">
+			<staticText>
+				<reportElement x="117" y="0" width="338" height="20" uuid="7f603506-8ec8-40f9-aa4e-f71dcf878ddc"/>
+				<text><![CDATA[Sistema Institucional de Gestión de la Calidad Certificado bajo la norma:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="20" width="224" height="20" uuid="5c39569c-10d3-4e70-84c4-918a1806bc39"/>
+				<text><![CDATA[ISO 9001:2008-NMX-CC-9001-IMNC-2008]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="10" width="100" height="20" uuid="152b6612-004b-476f-970f-e7e5949aa953"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[SAI GLOBAL]]></text>
+			</staticText>
+		</band>
+		<band height="50">
+			<staticText>
+				<reportElement x="26" y="30" width="529" height="20" uuid="1e3a29d5-529f-4a68-a738-5920adca2b1e"/>
+				<text><![CDATA[Av. Zaragoza No.1                  Calpulalpan Tlaxcala                     Tel. (01749) 9182256, 9181151        Ext. 104]]></text>
+			</staticText>
+		</band>
+		<band height="50"/>
+		<band height="50"/>
+	</detail>
+	<columnFooter>
+		<band height="42" splitType="Stretch"/>
+	</columnFooter>
+</jasperReport>
