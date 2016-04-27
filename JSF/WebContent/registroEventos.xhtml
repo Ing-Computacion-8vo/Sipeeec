@@ -1,0 +1,74 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <script name="jquery/jquery.js" library="primefaces"></script>
+    <title>Registro Eventos</title>
+</h:head>
+<h:form>
+
+<p:toolbar id="tb">
+    <f:facet name="left">
+        <p:commandButton type="button" value="Registro de evento" icon="ui-icon-document" />
+        <p:commandButton type="button" value="Lista de eventos" icon="ui-icon-document"/>
+        <p:commandButton type="button" value="Registrar alumno" icon="ui-icon-document"/>
+        
+        <!--  REEMPLAZAR POR OPCIONES DEL MENU PARA EL SISTEMA  -->
+    </f:facet>
+    <f:facet name="right">
+        <p:commandButton type="button" title="Save" icon="ui-icon-disk" value="Cerrar sesión"/>
+    </f:facet>
+</p:toolbar>
+<p:sticky target="tb" />
+    <p:growl id="messages"></p:growl>
+    <br></br>     
+    
+    <p:panelGrid columns="2">
+    	    	
+    	 <p:outputLabel value="Tipo de evento:"></p:outputLabel>
+		 <h:selectOneMenu value="#{registerEventos.eventos.eventosTipo}">
+			<f:selectItem itemLabel="--Selecciona una opción--" />		 
+            <f:selectItem itemValue="Curso" itemLabel="Curso" />
+            <f:selectItem itemValue="Taller" itemLabel="Taller" />
+            <f:selectItem itemValue="Conferencia" itemLabel="Conferencia" />            		
+         </h:selectOneMenu>    
+    
+        <p:outputLabel value="Nombre del evento:"></p:outputLabel>
+        <p:inputText value="#{registerEventos.eventos.eventosNombre}"></p:inputText>
+        <p:outputLabel value="Lugar del evento:"></p:outputLabel>
+        <p:inputText value="#{registerEventos.eventos.eventosLugar}"></p:inputText>
+        <p:outputLabel value="Fecha y hora del evento:"></p:outputLabel>
+        <p:calendar value="#{registerEventos.eventos.eventosFechayhora}" pattern="MM/dd/yyyy HH:mm" />
+        <p:outputLabel value="Audiencia:"></p:outputLabel>
+        <p:inputText value="#{registerEventos.eventos.eventosAudiencia}"></p:inputText>
+              
+        <p:outputLabel value="Periodo:"></p:outputLabel>
+		 <h:selectOneMenu value="#{registerEventos.eventos.eventosPeriodo}">
+			<f:selectItem itemLabel="--Selecciona una opción--" />		 
+            <f:selectItem itemValue="Primavera 2016" itemLabel="Primavera 2016" />
+            <f:selectItem itemValue="Otoño 2016" itemLabel="Otoño 2016" />  
+            
+            <f:selectItem itemValue="Primavera 2017" itemLabel="Primavera 2017" />
+            <f:selectItem itemValue="Otoño 2017" itemLabel="Otoño 2017" />
+            
+            <f:selectItem itemValue="Primavera 2018" itemLabel="Primavera 2018" />
+            <f:selectItem itemValue="Otoño 2018" itemLabel="Otoño 2018" />
+            
+            <f:selectItem itemValue="Primavera 2019" itemLabel="Primavera 2019" />
+            <f:selectItem itemValue="Otoño 2019" itemLabel="Otoño 2019" />                         		
+         </h:selectOneMenu>
+    
+        <p:outputLabel value="Responsable o Coordinador de Extensión y Cultura:"></p:outputLabel>
+        <p:inputText value="#{registerEventos.eventos.responsable}"></p:inputText>
+                               
+    </p:panelGrid>
+    
+    	
+    <br></br>
+    <p:commandButton value="Register" action="#{registerEventos.register}" update="messages"></p:commandButton>
+    <p:commandButton value="Cancelar" action="#{registerEventos.register}" update="messages"></p:commandButton>
+
+</h:form>
+</html>
