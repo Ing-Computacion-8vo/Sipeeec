@@ -1,0 +1,95 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+    
+<h:head>
+ <script name="jquery/jquery.js" library="primefaces"></script>
+ <title>Registro Ponentes</title>
+</h:head>
+<body>
+    
+ <p:menubar>
+			<p:menuitem value="Registro de eventos" outcome="add" icon="ui-icon-document" />
+			<p:menuitem value="Lista de eventos" outcome="listaDeEventos" icon="ui-icon-document" />
+			<p:menuitem value="Registrar alumno" outcome="RegistroAlumnos" icon="ui-icon-document" />			
+			
+			<p:menuitem value="Cerrar sesión" outcome="home.xhtml" icon="ui-icon-document" />				        	
+    	
+</p:menubar>
+<h:form>
+
+    <p:panelGrid columns="2">
+        <p:outputLabel value="Nombre del ponente:"></p:outputLabel>
+        <h:inputText value="#{ponentesController.p.nombre}"></h:inputText>
+        
+        <p:outputLabel value="Apellido Paterno:"></p:outputLabel>
+        <h:inputText value="#{ponentesController.p.ap}"></h:inputText>
+        
+        <p:outputLabel value="Apellido materno:"></p:outputLabel>
+        <h:inputText value="#{ponentesController.p.am}"></h:inputText>
+        
+        <p:outputLabel value="Correo del ponente:"></p:outputLabel>
+        <h:inputText value="#{ponentesController.p.correo}"></h:inputText>
+        
+        <p:outputLabel value="Tel. del ponente:"></p:outputLabel>
+        <h:inputText value="#{ponentesController.p.tel}"></h:inputText>
+
+    </p:panelGrid>
+    
+    <p:commandButton value="Guardar" action="#{ponentesController.add()}"></p:commandButton>
+    
+    </h:form>
+<h:form>
+
+	
+
+	<p:dataTable var="pr" value="#{ponentesController.findAll()}">
+		<p:column>
+			<f:facet name="header">
+			<h:outputText value="Id" /></f:facet>
+			<h:outputText value="${pr.id}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+			<h:outputText value="Nombre" /></f:facet>
+			<h:outputText value="${pr.nombre}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+			<h:outputText value="Apellido paterno" /></f:facet>
+			<h:outputText value="${pr.ap}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+			<h:outputText value="Apellido materno" /></f:facet>
+			<h:outputText value="${pr.am}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+			<h:outputText value="Correo" /></f:facet>
+			<h:outputText value="${pr.correo}" />
+		</p:column>
+		<p:column>
+			<f:facet name="header">
+			<h:outputText value="Telefono" /></f:facet>
+			<h:outputText value="${pr.tel}" />
+		</p:column>
+		
+		<p:column>
+			<f:facet name="header">Opciones</f:facet>
+			<h:commandButton value="Delete" action="#{ponentesController.delete(pr)}"
+			onclick="return confirm('Seguro que deseas eliminar?')"></h:commandButton>
+		</p:column>
+		<p:column>
+			<f:facet name="header">Opciones</f:facet>
+			<h:commandButton value="Edit" action="#{ponentesController.edit(pr)}"></h:commandButton>
+		</p:column>
+
+</p:dataTable>
+
+</h:form>
+
+</body>
+</html>
